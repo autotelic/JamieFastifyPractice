@@ -3,7 +3,7 @@ import usersRoute from './routes/users.js'
 
 function startServer() {
 	const fastify = Fastify({
-			logger: true
+		logger: true
 	})
 
   fastify.register(usersRoute)
