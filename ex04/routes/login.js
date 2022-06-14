@@ -1,8 +1,10 @@
 import S from 'fluent-json-schema';
 
-const schema = S.object()
-  .prop('username', S.string().required())
-  .prop('password', S.string().required())
+const schema = {
+  body: S.object()
+    .prop('username', S.string().required())
+    .prop('password', S.string().required())
+}
 
 async function login(fastify) {
   fastify.post('/login', async (req) => {
