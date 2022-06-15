@@ -13,3 +13,5 @@ async function login(fastify) {
     return { username, password }
   })
 }
+
+export default login;
