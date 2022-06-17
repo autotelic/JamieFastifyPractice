@@ -4,7 +4,7 @@ import loginRoute from './routes/login.js'
 import jwt from '@fastify/jwt'
 
 function startServer(config) {
-  
+
 	const fastifyOptions = {
     ...config,
     logger: {
@@ -17,10 +17,7 @@ function startServer(config) {
 
 	const fastify = Fastify({fastifyOptions});
 
-  fastify.register(jwt, {
-    secret: 'supersecret'
-  })
-  
+  fastify.register(import('./plugins/authentication.js'), fastifyOptions)
   fastify.register(usersRoute)
   fastify.register(loginRoute)
 

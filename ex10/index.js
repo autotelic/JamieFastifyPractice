@@ -17,9 +17,6 @@ function startServer(config) {
 
 	const fastify = Fastify({fastifyOptions});
 
-  fastify.register(jwt, {
-    secret: 'supersecret'
-  })
   fastify.register(import('./plugins/authenticate.js'), fastifyOptions)
   fastify.register(usersRoute)
   fastify.register(loginRoute)
